@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-
+import SearchComponent from "../SearchComponent";
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -50,10 +50,11 @@ const Header = () => {
           </ul>
         </nav>
         <div className="search">
-          <input type="text" className="textfield" placeholder="Search..." />
+          {/* <input type="text" className="textfield" placeholder="Search..." />
           <button className="btnSearch">
             <i className="fa-regular fa-magnifying-glass"></i>
-          </button>
+          </button> */}
+           <SearchComponent />
         </div>
 
         <div className="nav-collapse">
@@ -71,10 +72,11 @@ const Header = () => {
           </button>
           <div className={` searchToggle${searchOpen ? " showSearch" : ""}`}>
             <div className={` search2`}>
-              <input type="text" className="textfield" placeholder="Search..." />
+              {/* <input type="text" className="textfield" placeholder="Search..." />
               <button className="btnSearch">
                 <i className="fa-regular fa-magnifying-glass"></i>
-              </button>
+              </button> */}
+              <SearchComponent />
             </div>
           </div>
 

@@ -6,11 +6,6 @@ const Card = (props) => {
   return (
     <div className="card">
       <Link to={`/card/${props.props.id}`}> 
-      {/* <Link to={{
-        pathname: `/card/${props.props.id}`,
-        state: `${props.props.id}`,
-      }}>  */}
-      {/* {props.props.title} */}
       <div className="card-item">
         <div className="film-poster">
           <img
@@ -23,7 +18,7 @@ const Card = (props) => {
               <i class="fa-solid fa-play"></i>
             </div>
             <p className="description">
-              {props.props.overview.slice(0, 100)}...
+              {props.props.overview ? props.props.overview.slice(0, 100) : null}...
             </p>
           </div>
         </div>

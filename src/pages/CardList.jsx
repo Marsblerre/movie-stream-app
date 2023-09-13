@@ -4,19 +4,15 @@ import Card from "./Card";
 const CardList = (props) => {
   const [data, setData] = useState(null);
   useEffect(() => {
+    // console.log(props.data.results);
     setData(props.data.results);
-    // console.log(props.data);
   }, [props.data]);
-// console.log(data);
   return (
     <div className="category-container">
       <span className="list-text">{props.title}</span>
 
       <div className="movie-cards">
         {
-          // console.log(data.results)
-          // (data.results !== null) ?
-          // Array.isArray(data.results) ?
           data?.map((item) => {
             return <Card props={item} key={item.id}/>;
           })

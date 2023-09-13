@@ -114,7 +114,7 @@ const Movies = () => {
       <main id="main" style={{ ...containerStyles, height: "max-content" }}>
         
         {
-          apiUpcomingLoaded ? (<CardList data={upcomingMoviesData.data}title={"Upcoming"}/>) : ( <div>Loading...</div>)
+          apiUpcomingLoaded ? (<CardList data={upcomingMoviesData.data} title={"Upcoming"}/>) : ( <div>Loading...</div>)
         }
         
         {
