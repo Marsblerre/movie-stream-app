@@ -38,9 +38,6 @@ function SearchResults() {
       });
   }, [keyword]);
 
-//   if (loading) {
-//     return <p>Loading...</p>;
-//   }
 
   return (
     <div>
