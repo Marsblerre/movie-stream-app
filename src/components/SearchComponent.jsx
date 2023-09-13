@@ -23,10 +23,6 @@ const SearchComponent = () => {
       <button className="btnSearch" onClick={handleSearch}>
         <i className="fa-regular fa-magnifying-glass"></i>
       </button>
-      {/* <DataFetchingComponent
-        searchTerm={searchTerm}
-        onDataFetched={onDataFetched}
-      /> */}
     </>
   );
 };
