@@ -2,21 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./CardDetails.css";
 import axios from "axios";
-import CardList from "./CardList";
 import Similiar from "./Similiar";
 
 const CardDetails = () => {
   const { id } = useParams();
   const [finalData, setFinalData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [bgImg, setBgImg] = useState(null);
+  // const [error, setError] = useState(null);
+  // const [bgImg, setBgImg] = useState(null);
 
   const [movieSuccess, setMovieSuccess] = useState(false);
   const [showsSuccess, setShowsSuccess] = useState(false);
 
   useEffect(() => {
-    // Define your options
     const optionsMovie = {
       method: "GET",
       url: `https://api.themoviedb.org/3/movie/${id}`,
@@ -37,17 +35,16 @@ const CardDetails = () => {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjN2Q1N2FlY2NlMmRiZjhlN2UwMDVkNzliMDNjY2UwNCIsInN1YiI6IjY0NGUxYWQ3OWFmZmMwMDJmYmRmZGMwYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dx7oZt0jO5BJK4FmCJK71irizs-3Lshv-x11ts6H55A",
       },
     };
-    // Make the first API call
     axios
       .request(optionsMovie)
       .then((response) => {
         setMovieSuccess(true);
         setFinalData(response.data);
         setLoading(false);
-        setBgImg(finalData.backdrop_path);
+        // setBgImg(finalData.backdrop_path);
       })
       .catch((error) => {
-        setError(error);
+        // setError(error);
         setLoading(false);
       });
     axios
@@ -56,10 +53,10 @@ const CardDetails = () => {
         setShowsSuccess(true);
         setFinalData(response.data);
         setLoading(false);
-        setBgImg(finalData.backdrop_path);
+        // setBgImg(finalData.backdrop_path);
       })
       .catch((error) => {
-        setError(error);
+        // setError(error);
         setLoading(false);
       });
   }, []);
