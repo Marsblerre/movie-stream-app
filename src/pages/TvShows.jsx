@@ -8,7 +8,6 @@ import {
   GetAiringShows,GetOnAirShows, GetPopularShows, GetTopRatedShows
 } from "../store/tv-shows/apiActions";
 import CardList from "./CardList";
-import { popularShows } from "../store/tv-shows";
 
 const TvShows = () => {
   const [slides, setSlides] = useState([]);

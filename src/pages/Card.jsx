@@ -1,16 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
 const Card = (props) => {
-  // console.log(props.props);
-  const [item, setItem] = useState(null);
-  // useState(()=>{
-  //   // console.log(props);
-  //   setItem(props.props);
-  //   console.log("ITEM>>>", item);
-  // }, [props.props])
-  // const id
   return (
     <div className="card">
       <Link to={`/card/${props.props.id}`}> 
@@ -31,7 +23,7 @@ const Card = (props) => {
               <i class="fa-solid fa-play"></i>
             </div>
             <p className="description">
-              {props.props.overview.slice(0, 150)}...
+              {props.props.overview.slice(0, 100)}...
             </p>
           </div>
         </div>
@@ -42,7 +34,7 @@ const Card = (props) => {
             </a>
           </h3>
           <div className="fd-infor">
-            <span className="fdi-item">{props.props.release_date}</span>
+            <span className="fdi-item">{props.props.release_date ? props.props.release_date.slice(0,4) : props.props.first_air_date ? props.props.first_air_date.slice(0,4) : null}</span>
             <span className="dot"></span>
           </div>
         </div>

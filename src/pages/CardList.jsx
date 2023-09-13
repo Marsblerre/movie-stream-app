@@ -7,7 +7,7 @@ const CardList = (props) => {
     setData(props.data.results);
     // console.log(props.data);
   }, [props.data]);
-
+// console.log(data);
   return (
     <div className="category-container">
       <span className="list-text">{props.title}</span>
@@ -18,7 +18,7 @@ const CardList = (props) => {
           // (data.results !== null) ?
           // Array.isArray(data.results) ?
           data?.map((item) => {
-            return <Card props={item} />;
+            return <Card props={item} key={item.id}/>;
           })
         }
       </div>

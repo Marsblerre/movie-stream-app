@@ -124,6 +124,7 @@ const Movies = () => {
         {
           apiPopularLoaded ? (<CardList data={popularMoviesData.data}title={"Popular"}/>) : ( <div>Loading...</div>)
         }
+        
         {
           apiTopRatedLoaded ? (<CardList data={topRatedMoviesData.data}title={"Top Rated"}/>) : ( <div>Loading...</div>)
         }

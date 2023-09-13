@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Home.css";
 
 const slideStyles = {
   width: "100%",
   height: "100%",
-  // borderRadius: "10px",
   backgroundSize: "cover",
   backgroundPosition: "center",
-  // padding: "40px"
 };
 
 const rightArrowStyles = {
@@ -57,7 +55,6 @@ const arrowStyle = {
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  let mainSlide = [];
   const goToPrevious = () => {
     console.log("left works");
     const isFirstSlide = currentIndex === 0;
@@ -105,14 +102,12 @@ const ImageSlider = ({ slides }) => {
             <p className="sc-desc">
             {slides[currentIndex].overview}
             </p>
-            {/* <div className="sc-buttons"> */}
               <a
                 href="#"
                 className="btn btn-radius btn-sc-action btn-sc-play"
               >
                 See More <i className="fa-regular fa-arrow-right"></i>
               </a>
-            {/* </div> */}
           </div>
         </div>
       </div>
@@ -124,7 +119,6 @@ const ImageSlider = ({ slides }) => {
             key={slideIndex}
             onClick={(e) => {
               goToSlide(slideIndex);
-              // e.target.style.color = "#79c142";
             }}
           >
             -
