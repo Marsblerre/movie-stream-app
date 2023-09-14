@@ -1,10 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import CardList from "./CardList";
 
 const Similiar = (props) => {
-    console.log(props);
-  return (
-    <div>Movie LIst</div>
-  )
-}
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const options = {
+    method: "GET",
+    url: `${props.movie ? `https://api.themoviedb.org/3/movie/${props.id}/similar` : `https://api.themoviedb.org/3/tv/${props.id}/similar`}`,
+    params: { language: "en-US", page: "1" },
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjN2Q1N2FlY2NlMmRiZjhlN2UwMDVkNzliMDNjY2UwNCIsInN1YiI6IjY0NGUxYWQ3OWFmZmMwMDJmYmRmZGMwYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dx7oZt0jO5BJK4FmCJK71irizs-3Lshv-x11ts6H55A",
+    },
+  };
+  useEffect(() => {
+    axios
+      .request(options)
+      .then(function (response) {
+        setData(response.data);
+        setLoading(false)
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+      
+  }, []);
 
-export default Similiar
+  return (
+    <div>
+      {loading ? <p>Loading...</p> : <CardList data={data} title={"Similiar"}/>}
+      
+    </div>
+  );
+};
+
+export default Similiar;

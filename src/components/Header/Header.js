@@ -12,7 +12,7 @@ const Header = () => {
     { id: 1, text: "Home", path: "/" },
     { id: 2, text: "Movies", path: "/movies" },
     { id: 3, text: "TV Shows", path: "/tv-shows" },
-    { id: 4, text: "About", path: "/about" },
+    // { id: 4, text: "About", path: "/about" },
   ];
 
   const handleLinkClick = (id) => {

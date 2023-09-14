@@ -15,6 +15,7 @@ const CardDetails = () => {
   const [showsSuccess, setShowsSuccess] = useState(false);
 
   useEffect(() => {
+    
     const optionsMovie = {
       method: "GET",
       url: `https://api.themoviedb.org/3/movie/${id}`,
@@ -98,7 +99,7 @@ const CardDetails = () => {
         className="card-detail-holder"
         style={
           finalData.adult ? null :
-          movieSuccess || showsSuccess
+          movieSuccess 
             ? {
                 backgroundImage: `url(https://image.tmdb.org/t/p/original/${finalData.backdrop_path})`,
               }
@@ -111,11 +112,24 @@ const CardDetails = () => {
             className="poster"
           />
           <div className="popular-movie-slider-content">
-            <h2 className="movie-name">{finalData.title}</h2> <br />
-            <p className="movie-name">{finalData.tagline}</p>
-            <p className="release">{finalData.release_date?.slice(0, 4)}</p>
+            <h2 className="movie-name">{finalData.title ? finalData.title : finalData.name}</h2> 
+            <p className="movie-name">{finalData.tagline ? finalData.tagline : finalData.type}</p>
+            <p className="release">Released: {finalData.release_date? finalData.release_date?.slice(0, 4) : null}</p>
             <ul className="category">
+              Genres:
               {finalData.genres.map((item) => {
+                return <li>{item.name}</li>;
+              })}
+            </ul>
+            <ul className="category">
+              Countries:
+              {finalData.production_countries.map((item) => {
+                return <li>{item.name}</li>;
+              })}
+            </ul>
+            <ul className="category">
+              Languages:
+              {finalData.spoken_languages.map((item) => {
                 return <li>{item.name}</li>;
               })}
             </ul>
@@ -123,7 +137,7 @@ const CardDetails = () => {
             <div className="movie-info">
               <i className="fa fa-clock-o">
                 &nbsp;&nbsp;&nbsp;
-                <span>{convertMinsToHours(finalData.runtime)}</span>
+                <span>{finalData.runtime ? convertMinsToHours(finalData.runtime) : finalData.number_of_seasons}</span>
               </i>
               <i className="fa fa-circle">
                 &nbsp;&nbsp;&nbsp;
@@ -134,7 +148,10 @@ const CardDetails = () => {
             </div>
             <div className="movie-btns">
               <button>
-                <i className="fa fa-play"></i> &nbsp; Watch trailer
+                <a href={finalData.homepage} target="blank">
+                <i className="fa fa-info"></i> &nbsp; More Info
+                </a>
+                
               </button>
             </div>
           </div>
@@ -145,7 +162,7 @@ const CardDetails = () => {
         className="card-detail-holder"
         style={
           finalData.adult ? null :
-          movieSuccess || showsSuccess
+          movieSuccess 
             ? {
                 backgroundImage: `url(https://image.tmdb.org/t/p/original/${finalData.backdrop_path})`,
               }
@@ -158,11 +175,24 @@ const CardDetails = () => {
             className="poster"
           />
           <div className="popular-movie-slider-content">
-            <h2 className="movie-name">{finalData.name}</h2> <br />
-            <p className="movie-name">{finalData.tagline}</p>
-            <p className="release">{finalData.first_air_date?.slice(0, 4)}</p>
+            <h2 className="movie-name">{finalData.title ? finalData.title : finalData.name}</h2> 
+            <p className="movie-name">{finalData.tagline ? finalData.tagline : finalData.type}</p>
+            <p className="release">Released: {finalData.release_date? finalData.release_date?.slice(0, 4) : null}</p>
             <ul className="category">
+              Genres:
               {finalData.genres.map((item) => {
+                return <li>{item.name}</li>;
+              })}
+            </ul>
+            <ul className="category">
+              Countries:
+              {finalData.production_countries.map((item) => {
+                return <li>{item.name}</li>;
+              })}
+            </ul>
+            <ul className="category">
+              Languages:
+              {finalData.spoken_languages.map((item) => {
                 return <li>{item.name}</li>;
               })}
             </ul>
@@ -170,7 +200,7 @@ const CardDetails = () => {
             <div className="movie-info">
               <i className="fa fa-clock-o">
                 &nbsp;&nbsp;&nbsp;
-                <span>{convertMinsToHours(finalData.runtime)}</span>
+                <span>{finalData.runtime ? convertMinsToHours(finalData.runtime) : finalData.number_of_seasons}</span>
               </i>
               <i className="fa fa-circle">
                 &nbsp;&nbsp;&nbsp;
@@ -181,15 +211,17 @@ const CardDetails = () => {
             </div>
             <div className="movie-btns">
               <button>
-                <i className="fa fa-play"></i> &nbsp; Watch trailer
+                <a href={finalData.homepage} target="blank">
+                <i className="fa fa-info"></i> &nbsp; More Info
+                </a>
+                
               </button>
             </div>
           </div>
         </div>
         </div>
       ) : null}
-      <h3>Similiar</h3>
-      {movieSuccess ? <Similiar movie={true} data={id}/> : <Similiar shows={true} data={id}/>}
+      {movieSuccess ? <Similiar movie={true} shows={false} id={id}/> : <Similiar movie={false} shows={true} id={id}/>}
     </div>
   );
 };

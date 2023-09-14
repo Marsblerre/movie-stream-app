@@ -12,7 +12,7 @@ const SearchComponent = () => {
   };
 
   return (
-    <>
+    <form>
       <input
         type="text"
         className="textfield"
@@ -23,7 +23,7 @@ const SearchComponent = () => {
       <button className="btnSearch" onClick={handleSearch}>
         <i className="fa-regular fa-magnifying-glass"></i>
       </button>
-    </>
+    </form>
   );
 };
 
