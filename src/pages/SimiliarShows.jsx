@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardList from "./CardList";
 
-const Similiar = (props) => {
+const SimiliarShows = (props) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const options = {
+
+  const option2 = {
     method: "GET",
-    url: `${props.movie ? `https://api.themoviedb.org/3/movie/${props.id}/similar` : `https://api.themoviedb.org/3/tv/${props.id}/similar`}`,
+    url: `https://api.themoviedb.org/3/tv/${props.id}/similar`,
     params: { language: "en-US", page: "1" },
     headers: {
       accept: "application/json",
@@ -17,7 +18,7 @@ const Similiar = (props) => {
   };
   useEffect(() => {
     axios
-      .request(options)
+      .request(option2)
       .then(function (response) {
         setData(response.data);
         setLoading(false)
@@ -37,4 +38,4 @@ const Similiar = (props) => {
   );
 };
 
-export default Similiar;
+export default SimiliarShows;

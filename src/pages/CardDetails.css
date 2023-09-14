@@ -160,10 +160,11 @@
 @media screen and (min-width: 1480px) { 
     .card-detail-holder{
         height: 450px;
+        width: auto;
         box-shadow: inset 0px -450px 100px rgba(0,0,0,.3);
     }
     .popular-movie-slider .poster {
-        width: 40%!important;
+        width: 20%!important;
         height: auto;
         object-fit: cover;
         border-radius: 10px;

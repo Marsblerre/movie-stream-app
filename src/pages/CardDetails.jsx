@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./CardDetails.css";
 import axios from "axios";
-import Similiar from "./Similiar";
+import SimiliarMovies from "./SimiliarMovies";
+import SimiliarShows from "./SimiliarShows";
 
 const CardDetails = () => {
   const { id } = useParams();
@@ -162,7 +163,7 @@ const CardDetails = () => {
         className="card-detail-holder"
         style={
           finalData.adult ? null :
-          movieSuccess 
+          showsSuccess 
             ? {
                 backgroundImage: `url(https://image.tmdb.org/t/p/original/${finalData.backdrop_path})`,
               }
@@ -221,7 +222,7 @@ const CardDetails = () => {
         </div>
         </div>
       ) : null}
-      {movieSuccess ? <Similiar movie={true} shows={false} id={id}/> : <Similiar movie={false} shows={true} id={id}/>}
+      {movieSuccess ? <SimiliarMovies id={id}/> : <SimiliarShows id={id}/>}
     </div>
   );
 };

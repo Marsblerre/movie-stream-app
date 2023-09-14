@@ -109,13 +109,13 @@ const TvShows = () => {
         {isSuccessCall ? <ImageSlider slides={slides} /> : null}
       </div>
       <main id="main" style={{ ...containerStyles, height: "max-content" }}>
-        
-        {
-          apiPopularShows ? (<CardList data={popularShowsData.data}title={"Popular Shows"}/>) : ( <div>Loading...</div>)
-        }
         {
           apiTopRatedShows ? (<CardList data={topRatedShowsData.data}title={"Top Rated Shows"}/>) : ( <div>Loading...</div>)
         }
+        {
+          apiPopularShows ? (<CardList data={popularShowsData.data}title={"Popular Shows"}/>) : ( <div>Loading...</div>)
+        }
+
         {
           apiAiringShows ? (<CardList data={airingShowsData.data}title={"Airing Today"}/>) : ( <div>Loading...</div>)
         }
