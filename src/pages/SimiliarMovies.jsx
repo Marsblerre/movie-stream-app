@@ -21,9 +21,9 @@ const SimiliarMovies = (props) => {
     axios
       .request(option1)
       .then(function (response) {
+        console.log(response.data);
         setData(response.data);
         setLoading(false)
-        console.log(response.data);
       })
       .catch(function (error) {
         console.error(error);

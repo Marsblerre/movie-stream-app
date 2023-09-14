@@ -222,7 +222,9 @@ const CardDetails = () => {
         </div>
         </div>
       ) : null}
-      {movieSuccess ? <SimiliarMovies id={id}/> : <SimiliarShows id={id}/>}
+      
+      {movieSuccess ? <SimiliarMovies id={id}/> : null}
+      {movieSuccess ? null : showsSuccess ? <SimiliarShows id={id}/> : null}
     </div>
   );
 };

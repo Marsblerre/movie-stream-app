@@ -44,11 +44,15 @@ const dotsContainerStyles = {
 const dotStyle = {
   margin: "-50px 12px 0 0",
   cursor: "pointer",
-  fontSize: "50px",
+  fontSize: "20px",
+  lineHeight: "1.2",
   zIndex: "1000",
-  opacity: ".6",
+  opacity: ".8",
   
 };
+const activeDotStyle = {
+  color: "rgba(0, 206, 93)",
+}
 const arrowStyle = {
   fontSize: "50px",
   zIndex: "100",
@@ -115,13 +119,15 @@ const ImageSlider = ({ slides }) => {
         {slides.map((slide, slideIndex) => (
           <div
           className="dot"
+            // style={dotStyle}
             style={dotStyle}
             key={slideIndex}
             onClick={(e) => {
               goToSlide(slideIndex);
             }}
           >
-            -
+            {/* - */}
+            <i className="fa-solid fa-dash" style={slideIndex == currentIndex ? {...dotStyle, ...activeDotStyle} : dotStyle}></i>
           </div>
         ))}
       </div>
