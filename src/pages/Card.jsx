@@ -1,11 +1,15 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Card = (props) => {
+  const navigate = useNavigate();
   return (
     <div className="card">
-      <Link to={`/card/${props.props.id}`} > 
+      <Link to={`/card/${props.props.id}`} onClick={()=>{
+        navigate(`/card/${props.props.id}`)
+        window.location.reload()}}> 
       <div className="card-item">
         <div className="film-poster">
           <img
