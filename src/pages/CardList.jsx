@@ -14,7 +14,8 @@ const CardList = (props) => {
       <div className="movie-cards">
         {
           data?.map((item) => {
-            return <Card props={item} key={item.id}/>;
+            return item.poster_path ? <Card props={item} key={item.id} /> : null; /// Returns only the ones with the poster 
+            // return <Card props={item} key={item.id} /> ;
           })
         }
       </div>
