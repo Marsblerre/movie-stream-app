@@ -53,7 +53,7 @@ const CardDetails = () => {
       .request(optionsShow)
       .then((response) => {
         setShowsSuccess(true);
-        setFinalData(response.data);
+         setFinalData(response.data) 
         setLoading(false);
         // setBgImg(finalData.backdrop_path);
       })
@@ -115,7 +115,7 @@ const CardDetails = () => {
           <div className="popular-movie-slider-content">
             <h2 className="movie-name">{finalData.title ? finalData.title : finalData.name}</h2> 
             <p className="movie-name">{finalData.tagline ? finalData.tagline : finalData.type}</p>
-            <p className="release">Released: {finalData.release_date? finalData.release_date?.slice(0, 4) : null}</p>
+            <p className="release">Released: {finalData.release_date? finalData.release_date?.slice(0, 4) : finalData.first_air_date?.slice(0,4)}</p>
             <ul className="category">
               Genres:
               {finalData.genres.map((item) => {
@@ -147,14 +147,14 @@ const CardDetails = () => {
                 </span>
               </i>
             </div>
-            <div className="movie-btns">
+            {finalData.homepage ? <div className="movie-btns">
               <button>
                 <a href={finalData.homepage} target="blank">
                 <i className="fa fa-info"></i> &nbsp; More Info
                 </a>
                 
               </button>
-            </div>
+            </div> : null}
           </div>
         </div>
         </div>
@@ -210,21 +210,25 @@ const CardDetails = () => {
                 </span>
               </i>
             </div>
-            <div className="movie-btns">
+            {finalData.homepage ? <div className="movie-btns">
               <button>
                 <a href={finalData.homepage} target="blank">
                 <i className="fa fa-info"></i> &nbsp; More Info
                 </a>
                 
               </button>
-            </div>
+            </div> : null}
+            
           </div>
         </div>
         </div>
       ) : null}
       
-      {movieSuccess ? <SimiliarMovies id={id}/> : null}
-      {movieSuccess ? null : showsSuccess ? <SimiliarShows id={id}/> : null}
+      {/* {Object.values(finalData).includes("in_production") ? <SimiliarShows id={id}/> : <SimiliarMovies id={id}/>  } */}
+      {/* {movieSuccess ? <SimiliarMovies id={id}/> : null} */}
+      {/* {movieSuccess ? null : showsSuccess ? <SimiliarShows id={id}/> : null} */}
+      {/* {loading ? null : console.log(finalData.status)} */}
+      {loading ? null :  (finalData.status == "Released" || finalData.status == "Post Production") ? <SimiliarMovies id={id}/> : <SimiliarShows id={id}/> }
     </div>
   );
 };

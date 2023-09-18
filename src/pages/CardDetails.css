@@ -21,15 +21,20 @@
     position:relative;
     display: flex;
     flex-direction: column;
-
+    .poster {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+    }
   }
 
-.popular-movie-slider .poster {
+/* .popular-movie-slider .poster {
   width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: 10px;
-}
+} */
 
 .popular-movie-slider .popular-movie-slider-content {
   line-height: 25px;
@@ -116,8 +121,6 @@
     .popular-movie-slider .poster {
         width: 50%;
         height: auto;
-        object-fit: cover;
-        border-radius: 10px;
       }
 }
 @media screen and (min-width: 620px) {
@@ -133,8 +136,6 @@
     .popular-movie-slider .poster {
         width: 60%!important;
         height: auto;
-        object-fit: cover;
-        border-radius: 10px;
       }
 }
 
@@ -149,8 +150,6 @@
     .popular-movie-slider .poster {
         width: 300px!important;
         height: 400px;
-        object-fit: cover;
-        border-radius: 10px;
     }
     .popular-movie-slider-content{
         width: 60%;
@@ -166,7 +165,5 @@
     .popular-movie-slider .poster {
         width: 20%!important;
         height: auto;
-        object-fit: cover;
-        border-radius: 10px;
       }
 }
