@@ -37,12 +37,13 @@ const CardDetails = () => {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjN2Q1N2FlY2NlMmRiZjhlN2UwMDVkNzliMDNjY2UwNCIsInN1YiI6IjY0NGUxYWQ3OWFmZmMwMDJmYmRmZGMwYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dx7oZt0jO5BJK4FmCJK71irizs-3Lshv-x11ts6H55A",
       },
     };
+    
     axios
       .request(optionsMovie)
       .then((response) => {
-        setMovieSuccess(true);
-        setFinalData(response.data);
-        setLoading(false);
+        // setMovieSuccess(true);
+        // setFinalData(response.data);
+        // setLoading(false);
         // setBgImg(finalData.backdrop_path);
       })
       .catch((error) => {

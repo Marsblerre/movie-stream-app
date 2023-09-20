@@ -60,7 +60,7 @@ const Home = () => {
         setIsSuccessCall(true);
       })
       .catch(function (error) {
-        console.error(error);
+        console.error("THIS IS THE ERROR...",error);
       });
 
     // GetNowPlaying API
